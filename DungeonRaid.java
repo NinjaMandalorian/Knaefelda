@@ -68,8 +68,25 @@ public class DungeonRaid implements Stepable {
         currentFloor++;
         System.out.println("Advancing to floor " + currentFloor);
         DungeonFloor floor = dungeon.getFloor(currentFloor - 1);
-        System.out.println("Floor " + currentFloor + " has CR " + floor.getCombatRating());
 
+        int floorRating = floor.getCombatRating();
+        int partyRating = party.getCombatRating();
+
+        System.out.println("Floor " + currentFloor + " has CR " + floorRating);
+        System.out.println("Party has CR " + partyRating);
+
+        double relativeRating = partyRating / (double) floorRating;
+        System.out.println("Relative rating: " + relativeRating);
+
+        double deathChance = 1.0 / (50.0 * relativeRating);
+        double heavyInjuryChance = 1.0 / (10.0 * relativeRating);
+        double injuryChance = 1.0 / (5.0 * relativeRating);
+        double minorInjuryChance = 1.0 / (3.0 * relativeRating);
+
+        System.out.println("Death chance: " + deathChance);
+        System.out.println("Heavy injury chance: " + heavyInjuryChance);
+        System.out.println("Injury chance: " + injuryChance);
+        System.out.println("Minor injury chance: " + minorInjuryChance);
 
     }
 
