@@ -22,5 +22,9 @@ public class WorldManager {
             stepable.step();
         }
     }
+
+    public World getWorld() {
+        return world;
+    }
     
 }

@@ -1,5 +1,3 @@
-import java.util.Collection;
-
 public class DungeonRaid implements Stepable {
     
     public enum RaidStatus {
@@ -70,7 +68,9 @@ public class DungeonRaid implements Stepable {
         currentFloor++;
         System.out.println("Advancing to floor " + currentFloor);
         DungeonFloor floor = dungeon.getFloor(currentFloor - 1);
-        System.out.println("Floor " + currentFloor + " has CR " + floor.getCombatRating()); 
+        System.out.println("Floor " + currentFloor + " has CR " + floor.getCombatRating());
+
+
     }
 
     @Override
