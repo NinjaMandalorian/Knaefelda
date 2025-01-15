@@ -16,6 +16,10 @@ public class Game {
         world = new World();
         worldManager = new WorldManager(world);
         
+        // Run the input loop in a separate thread
+        Thread inputThread = new Thread(() -> inputLoop());
+        inputThread.start();
+
         Dungeon startDungeon = new Dungeon("Newbie Dungeon", 3);
         world.addLocation(startDungeon);
 
@@ -25,10 +29,6 @@ public class Game {
         party.addMember(new Person("John", 22));
 
         startDungeon.raid(party);
-
-        // Run the input loop in a separate thread
-        Thread inputThread = new Thread(() -> inputLoop());
-        inputThread.start();
 
         while (isRunning) {
             long stepStart = System.currentTimeMillis();
