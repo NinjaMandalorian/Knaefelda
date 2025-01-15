@@ -42,8 +42,8 @@ public class Dungeon implements Location {
     public void step() {
         System.out.println("Stepping dungeon " + name);
 
-        for (DungeonRaid raid : activeRaids) {
-            raid.step();
+        for (int i = 0; i < activeRaids.size(); i++) {
+            activeRaids.get(i).step();
         }
     }
 
