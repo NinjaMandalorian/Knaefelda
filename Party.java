@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public abstract class Party implements Combatable {
 
@@ -18,7 +19,7 @@ public abstract class Party implements Combatable {
         members.remove(person);
     }
 
-    public Collection<Person> getMembers() {
+    public List<Person> getMembers() {
         return members;
     }
     
