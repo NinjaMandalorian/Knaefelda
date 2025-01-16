@@ -1,3 +1,5 @@
+package knaefelda;
+
 import java.util.List;
 
 public class DungeonRaid implements Stepable {

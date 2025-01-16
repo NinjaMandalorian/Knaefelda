@@ -1,3 +1,5 @@
+package knaefelda;
+
 public interface Container {
 
     public boolean addItem(Item item);

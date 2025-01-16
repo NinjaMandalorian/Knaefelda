@@ -1,3 +1,5 @@
+package knaefelda;
+
 import java.util.ArrayList;
 
 public class WorldManager {
