@@ -36,12 +36,31 @@ public class Person implements Combatable, Container {
         return age;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
     public Location getResidence() {
         return residence;
+    }
+
+    public double getHealth() {
+        return health;
+    }
+
+    public void damage(double amount) {
+        health -= amount;
+        if (health < 0) {
+            health = 0;
+        }
+    }
+
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
+    public double getMaxHealth() {
+        return maxHealth;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     @Override
