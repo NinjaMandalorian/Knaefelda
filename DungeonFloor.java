@@ -4,7 +4,7 @@ import java.util.List;
 public class DungeonFloor {
     
     private int combatRating;
-
+    private LootTable lootTable;
 
     public DungeonFloor(int combatRating) {
         this.combatRating = combatRating;
@@ -15,10 +15,13 @@ public class DungeonFloor {
     }
 
     public List<Item> generateLoot() {
-        System.out.println("NO LOOT GENERATION YET");
-        return new ArrayList<>();
-        // // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'generateLoot'");
+        ArrayList<Item> items = new ArrayList<>();
+        lootTable.generateLoot().forEach((item, quantity) -> {
+            for (int i = 0; i < quantity; i++) {
+                items.add(item);
+            }
+        });
+        return items;
     }
 
 }
