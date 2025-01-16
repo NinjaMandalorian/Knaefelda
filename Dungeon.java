@@ -28,6 +28,10 @@ public class Dungeon implements Location {
         return floors.get(index);
     }
 
+    public ArrayList<DungeonRaid> getActiveRaids() {
+        return activeRaids;
+    }
+
     public void raid(AdventurerParty party) {
         DungeonRaid raid = new DungeonRaid(this, party);
         activeRaids.add(raid);

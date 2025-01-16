@@ -48,6 +48,11 @@ public class Game {
             } else {
                 System.out.println("Thread went " + waitTime + "over assigned time.");
             }
+
+            // DEBUG AUTO RAID
+            if (startDungeon.getActiveRaids().isEmpty()) {
+                startDungeon.raid(party);
+            }
         }
     }
 
