@@ -1,3 +1,5 @@
+package knaefelda;
+
 /**
  * Item class
  * Constitutes any item held by a Container

@@ -1,3 +1,5 @@
+package knaefelda;
+
 public class Pair<K, V> {
 
     private K key;
