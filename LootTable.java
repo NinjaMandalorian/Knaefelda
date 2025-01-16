@@ -32,13 +32,10 @@ public class LootTable {
     private List<LootTableEntry> lootTableEntries = new ArrayList<>();
     private double dropRateSum;
 
-    public LootTable(Map<String, Map<Double, Integer>> lootTable) {
+    public LootTable(Map<String, Pair<Double, Integer>> lootTable) {
         lootTable.forEach((itemName, itemData) -> {
             Item item = new Item(itemName, itemName, 0); // TODO : REPLACE WITH REGISTRY LOOKUP
-            itemData.forEach((dropRate, quantity) -> {
-                lootTableEntries.add(new LootTableEntry(item, dropRate, quantity));
-                dropRateSum += dropRate;
-            });
+            lootTableEntries.add(new LootTableEntry(item, itemData.getKey(), itemData.getValue()));
         });
     }
 
