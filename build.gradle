@@ -55,3 +55,19 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+tasks.register('copyJar', Copy) {
+    dependsOn tasks.named('jar') // Ensure jar is built before copy
+
+    from(tasks.named('jar').get().archiveFile) // Source: the built jar
+    into("$buildDir/copied-jars") // Destination directory (you can change this)
+
+    doFirst {
+        println "Copying jar to $buildDir/copied-jars"
+    }
+}
+
+// Make 'build' depend on 'copyJar' so it runs automatically
+tasks.named('build') {
+    dependsOn tasks.named('copyJar')
+}
