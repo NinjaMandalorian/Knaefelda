@@ -60,7 +60,7 @@ tasks.register('copyJar', Copy) {
     dependsOn tasks.named('jar') // Ensure jar is built before copy
 
     from(tasks.named('jar').get().archiveFile) // Source: the built jar
-    into("$buildDir/copied-jars") // Destination directory (you can change this)
+    into("$rootDir/dist")
 
     doFirst {
         println "Copying jar to $buildDir/copied-jars"
