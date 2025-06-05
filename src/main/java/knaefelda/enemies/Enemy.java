@@ -55,6 +55,7 @@ public abstract class Enemy implements Combatable {
 
     @Override
     public void takeDamage(double amount) {
+        System.out.println("Enemy [" + System.identityHashCode(this) + "] taking damage: " + amount);
         health = Math.max(health - amount, 0);
     }
 
@@ -79,4 +80,10 @@ public abstract class Enemy implements Combatable {
         });
         return lootList;
     }
+
+    @Override
+    public String toString() {
+        return "Enemy [" + System.identityHashCode(this) + "] " + getName() + "-" + health + "/" + maxHealth;
+    }
+
 }

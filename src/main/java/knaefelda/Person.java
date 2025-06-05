@@ -53,7 +53,7 @@ public class Person implements Combatable, Container {
 
     @Override
     public String toString() {
-        return name + ", " + age + " years old";
+        return "Person [" + System.identityHashCode(this) + "] " + getName() + " (" + getAge() + ")" + "-" + health + "/" + maxHealth;
     }
 
     // Status Methods
