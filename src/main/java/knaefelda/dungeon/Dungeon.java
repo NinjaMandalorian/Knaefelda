@@ -37,10 +37,15 @@ public class Dungeon implements Location {
         return activeRaids;
     }
 
-    public void raid(AdventurerParty party) {
+    public DungeonRaid raid(AdventurerParty party) {
+        if (!isRaidable()) {
+            System.out.println("Dungeon not ready to be raided.");
+            return null;
+        }
         DungeonRaid raid = new DungeonRaid(this, party);
         activeRaids.add(raid);
         raid.start();
+        return raid;
     }
 
     public void raidEnded(DungeonRaid raid) {
@@ -58,6 +63,20 @@ public class Dungeon implements Location {
         for (int i = 0; i < activeRaids.size(); i++) {
             activeRaids.get(i).step();
         }
+    }
+
+    /***
+     * Is ready to take a new party?
+     * @return Boolean - ready or not.
+     */
+    public boolean isRaidable() {
+        if (floors.get(0).isCleared()) return false;
+
+        // TODO - For now - only 1 party per dungeon
+        // If remove this limit, more complex systems may be needed for party raid AI.
+        if (activeRaids.size() > 0) return false;
+
+        return true;
     }
 
 }

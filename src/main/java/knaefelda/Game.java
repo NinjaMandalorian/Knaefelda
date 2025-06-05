@@ -54,7 +54,7 @@ public class Game {
             }
 
             // DEBUG AUTO RAID
-            if (startDungeon.getActiveRaids().isEmpty()) {
+            if (startDungeon.isRaidable()) {
                 startDungeon.raid(party);
             }
         }
