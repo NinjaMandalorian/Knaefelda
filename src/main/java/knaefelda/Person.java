@@ -9,8 +9,8 @@ public class Person implements Combatable, Container {
     private Location residence;
 
     // Status fields
-    private double health = 100;
-    private double maxHealth = 100;
+    private double health = 25;
+    private double maxHealth = 25;
     private Location location;
 
     // Inventory fields
