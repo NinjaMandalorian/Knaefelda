@@ -7,6 +7,7 @@ import knaefelda.dungeon.Dungeon;
 public class Game {
     
     private static final int STEPS_PER_SECOND = 2;
+    private static final boolean ONE_RAID = true;
 
     private static boolean isRunning = true;
 
@@ -37,7 +38,7 @@ public class Game {
         while (isRunning) {
             long stepStart = System.currentTimeMillis();
 
-            System.out.println("Step: " + stepStart);
+            // System.out.println("Step: " + stepStart);
             worldManager.stepWorld();
 
             long stepDuration = System.currentTimeMillis() - stepStart;
@@ -55,14 +56,19 @@ public class Game {
 
             // DEBUG AUTO RAID
             if (startDungeon.isRaidable()) {
-                startDungeon.raid(party);
+                if (ONE_RAID) {
+                    System.out.println("Would've started new raid.");
+                    isRunning = false;
+                } else {
+                    startDungeon.raid(party);
+                }
             }
         }
     }
 
     private static void inputLoop() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        while (isRunning) {
             System.out.println("Enter a command: ");
             String command = scanner.nextLine();
 
@@ -81,6 +87,7 @@ public class Game {
                     break;
             }
         }
+        scanner.close();
     }
 
     public static World getWorld() {
