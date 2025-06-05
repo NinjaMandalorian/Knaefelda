@@ -1,7 +1,10 @@
-package knaefelda;
+package knaefelda.dungeon;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import knaefelda.AdventurerParty;
+import knaefelda.Location;
 
 public class Dungeon implements Location {
     
@@ -14,7 +17,7 @@ public class Dungeon implements Location {
     public Dungeon(String name, int floors) {
         this.name = name;
         for (int i = 0; i < floors; i++) {
-            this.floors.add(new DungeonFloor(3 + 2^i));
+            this.floors.add(DungeonFloors.goblinDungeonFloor(1 + 2*i));
         }
     }
 

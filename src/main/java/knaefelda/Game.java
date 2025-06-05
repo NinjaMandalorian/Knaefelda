@@ -2,6 +2,8 @@ package knaefelda;
 
 import java.util.Scanner;
 
+import knaefelda.dungeon.Dungeon;
+
 public class Game {
     
     private static final int STEPS_PER_SECOND = 2;

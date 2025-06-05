@@ -1,6 +1,11 @@
-package knaefelda;
+package knaefelda.dungeon;
 
 import java.util.List;
+
+import knaefelda.AdventurerParty;
+import knaefelda.Item;
+import knaefelda.Person;
+import knaefelda.Stepable;
 
 public class DungeonRaid implements Stepable {
     
