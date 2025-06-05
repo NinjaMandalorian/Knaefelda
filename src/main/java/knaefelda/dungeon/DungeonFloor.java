@@ -50,8 +50,8 @@ public class DungeonFloor implements Stepable {
         } else {
             boolean floorWiped = enemies.stream().allMatch(e -> !e.isAlive());
             if (floorWiped) {
-                respawning = true;
                 nextRespawn = System.currentTimeMillis() + respawnTime;
+                respawning = true;
             }
         }
 
