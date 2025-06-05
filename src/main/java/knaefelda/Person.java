@@ -29,6 +29,8 @@ public class Person implements Combatable, Container {
         this("Person", 20);
     }
 
+    // Data Methods
+
     public String getName() {
         return name;
     }
@@ -37,25 +39,43 @@ public class Person implements Combatable, Container {
         return age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public Location getResidence() {
         return residence;
     }
 
-    public double getHealth() {
-        return health;
+    public void setResidence(Location residence) {
+        this.residence = residence;
     }
 
-    public void damage(double amount) {
-        health -= amount;
-        if (health < 0) {
-            health = 0;
-        }
+    @Override
+    public String toString() {
+        return name + ", " + age + " years old";
+    }
+
+    // Status Methods
+
+    public double getHealth() {
+        return health;
     }
 
     public void setHealth(double health) {
         this.health = health;
     }
 
+    @Override
+    public void takeDamage(double amount) {
+        health = Math.max(0, health - amount);
+    }
+
+    @Override
+    public boolean isAlive() {
+        return health > 0;
+    }
+    
     public double getMaxHealth() {
         return maxHealth;
     }
@@ -65,16 +85,13 @@ public class Person implements Combatable, Container {
     }
 
     @Override
-    public String toString() {
-        return name + ", " + age + " years old";
+    public double getAttack() {
+        return combatLevel;
     }
 
     @Override
     public int getCombatRating() {
-        // Health below 50% reduces combat rating
-        double injuryMultiplier = Math.clamp((health/maxHealth)*2, 0, 1);
-
-        return (int) (combatLevel * injuryMultiplier);
+        return (int) ((health + 2 * getAttack()) / 5);
     }
 
     @Override
