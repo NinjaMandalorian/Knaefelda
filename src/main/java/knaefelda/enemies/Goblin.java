@@ -1,9 +1,7 @@
 package knaefelda.enemies;
 
 import java.util.HashMap;
-import java.util.List;
 
-import knaefelda.Item;
 import knaefelda.LootTable;
 import knaefelda.Pair;
 

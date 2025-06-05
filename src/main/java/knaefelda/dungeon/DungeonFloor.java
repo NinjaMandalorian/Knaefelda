@@ -1,11 +1,9 @@
 package knaefelda.dungeon;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import knaefelda.enemies.Enemy;
-import knaefelda.enemies.Goblin;
 
 public class DungeonFloor {
     
