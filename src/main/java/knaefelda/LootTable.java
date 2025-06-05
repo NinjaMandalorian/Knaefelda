@@ -43,8 +43,10 @@ public class LootTable {
         lootTable.forEach((itemName, itemData) -> {
             Item item = new Item(itemName, itemName, 0); // TODO : REPLACE WITH REGISTRY LOOKUP
             LootTableEntry newEntry = new LootTableEntry(item, itemData.getKey(), itemData.getValue());
-            lootTableEntries.add(newEntry);
             System.out.println(newEntry.toString());
+            lootTableEntries.add(newEntry);
+
+            dropRateSum += itemData.getKey();
         });
     }
 
