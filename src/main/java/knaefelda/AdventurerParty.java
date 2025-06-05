@@ -89,5 +89,28 @@ public class AdventurerParty extends Party implements Container {
     public int getCapacity() {
         return capacity;
     }
+
+    @Override
+    public double getHealth() {
+        return getMembers().stream().mapToDouble(Person::getHealth).sum();
+    }
+
+    @Override
+    public double getAttack() {
+        return getMembers().stream().mapToDouble(Person::getAttack).sum();
+    }
+
+    @Override
+    public void takeDamage(double amount) {
+        // WARNING - THIS IS AOE / TOTAL PARTY DAMAGE.
+        for (Person member : getMembers()) {
+            member.takeDamage(amount);
+        }
+    }
+
+    @Override
+    public boolean isAlive() {
+        return getMembers().stream().anyMatch(m -> m.getHealth() > 0);
+    }
     
 }
