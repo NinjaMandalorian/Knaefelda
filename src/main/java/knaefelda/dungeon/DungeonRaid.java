@@ -57,7 +57,7 @@ public class DungeonRaid implements Stepable {
             .map(e -> " - " + e.getKey() + ": " + e.getValue())
             .collect(Collectors.joining("\n"));
 
-        String raidSummary = "--------------\n     RAID SUMMARY\n--------------";
+        String raidSummary = "--------------\n RAID SUMMARY\n--------------";
         raidSummary += "\nMembers: " + members.size();
         raidSummary += "\nAlive: " + alive + "/" + members.size();
         raidSummary += "\nTotal HP: " + partyHp + "/" + partyMaxHp;
@@ -113,7 +113,7 @@ public class DungeonRaid implements Stepable {
         System.out.println("Fighting!");
         DungeonFloor floor = dungeon.getFloor(currentFloor);
         List<Person> adventurers = party.getMembers();
-        List<Enemy> enemies = floor.getActiveEnemies();
+        List<Enemy> enemies = floor.getEnemies();
 
         List<Combatable> turnOrder = new ArrayList<>();
         turnOrder.addAll(adventurers);
