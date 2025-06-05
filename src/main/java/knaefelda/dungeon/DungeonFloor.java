@@ -9,7 +9,8 @@ import knaefelda.enemies.Goblin;
 
 public class DungeonFloor {
     
-    private List<Enemy> enemies;
+    private List<Enemy> startingEnemies;
+    private List<Enemy> activeEnemies;
 
 
     public DungeonFloor() {
@@ -17,15 +18,24 @@ public class DungeonFloor {
     }
 
     public DungeonFloor(List<Enemy> enemies) {
-        this.enemies = new ArrayList<>(enemies);
+        this.startingEnemies = new ArrayList<>(enemies);
+        activeEnemies = startingEnemies;
     }
 
     public int getCombatRating() {
         int sum = 0;
-        for (Enemy enemy : enemies) {
+        for (Enemy enemy : activeEnemies) {
             if (enemy.isAlive()) sum += enemy.getCombatRating();
         }
         return sum;
+    }
+
+    public List<Enemy> getActiveEnemies() {
+        return activeEnemies;
+    }
+
+    public boolean isCleared() {
+        return activeEnemies.stream().allMatch(e -> e.getHealth() <= 0);
     }
 
 
