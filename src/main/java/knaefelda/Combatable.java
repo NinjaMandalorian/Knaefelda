@@ -8,6 +8,10 @@ public interface Combatable {
     
     public double getHealth();
 
+    public void setHealth(double health);
+
+    public double getMaxHealth();
+
     public double getAttack();
 
     public void takeDamage(double amount);

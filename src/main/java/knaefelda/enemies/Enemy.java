@@ -10,6 +10,7 @@ import knaefelda.LootTable;
 public abstract class Enemy implements Combatable {
     protected String name;
     protected double health;
+    protected double maxHealth;
     protected double attack;
     protected int combatRating;
     protected LootTable drops;
@@ -21,6 +22,7 @@ public abstract class Enemy implements Combatable {
     public Enemy(String name, double health, double attack, LootTable drops, int dropRolls) {
         this.name = name;
         this.health = health;
+        this.maxHealth = health;
         this.attack = attack;
         this.drops = drops;
         combatRating = (int) ((health + 2 * attack) / 5);
@@ -34,6 +36,16 @@ public abstract class Enemy implements Combatable {
     @Override
     public double getHealth() {
         return health;
+    }
+
+    @Override
+    public void setHealth(double health) {
+        this.health = health;
+    }
+
+    @Override
+    public double getMaxHealth() {
+        return maxHealth;
     }
 
     @Override

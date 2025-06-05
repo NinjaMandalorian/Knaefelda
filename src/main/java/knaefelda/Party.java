@@ -29,6 +29,39 @@ public abstract class Party implements Combatable {
     }
 
     @Override
+    public double getHealth() {
+        return getMembers().stream().mapToDouble(Person::getHealth).sum();
+    }
+
+    @Override
+    public double getMaxHealth() {
+        return getMembers().stream().mapToDouble(Person::getMaxHealth).sum();
+    }
+
+    @Override
+    public void setHealth(double health) {
+        throw new UnsupportedOperationException("You cannot set the health of a party.");
+    }
+
+    @Override
+    public double getAttack() {
+        return getMembers().stream().mapToDouble(Person::getAttack).sum();
+    }
+
+    @Override
+    public void takeDamage(double amount) {
+        // WARNING - THIS IS AOE / TOTAL PARTY DAMAGE.
+        for (Person member : getMembers()) {
+            member.takeDamage(amount);
+        }
+    }
+
+    @Override
+    public boolean isAlive() {
+        return getMembers().stream().anyMatch(m -> m.getHealth() > 0);
+    }
+
+    @Override
     public int getCombatRating() {
         int totalRating = 0;
         for (Person person : getMembers()) {
