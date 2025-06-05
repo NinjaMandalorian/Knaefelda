@@ -15,6 +15,7 @@ public class LootTable {
         public LootTableEntry(Item item, double dropRate, int quantity) {
             this.item = item;
             this.dropRate = dropRate;
+            this.quantity = quantity;
         }
 
         public Item getItem() {
@@ -29,6 +30,10 @@ public class LootTable {
             return quantity;
         }
 
+        public String toString() {
+            return item.toString() + "[W: " + dropRate + " Q: " + quantity + "]";
+        }
+
     }
 
     private List<LootTableEntry> lootTableEntries = new ArrayList<>();
@@ -37,7 +42,9 @@ public class LootTable {
     public LootTable(Map<String, Pair<Double, Integer>> lootTable) {
         lootTable.forEach((itemName, itemData) -> {
             Item item = new Item(itemName, itemName, 0); // TODO : REPLACE WITH REGISTRY LOOKUP
-            lootTableEntries.add(new LootTableEntry(item, itemData.getKey(), itemData.getValue()));
+            LootTableEntry newEntry = new LootTableEntry(item, itemData.getKey(), itemData.getValue());
+            lootTableEntries.add(newEntry);
+            System.out.println(newEntry.toString());
         });
     }
 
