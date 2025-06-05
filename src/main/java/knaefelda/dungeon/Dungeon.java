@@ -54,7 +54,7 @@ public class Dungeon implements Location {
 
     @Override
     public void step() {
-        System.out.println("Stepping dungeon " + name);
+        // System.out.println("Stepping dungeon " + name);
 
         for (int i = 0; i < floors.size(); i++) {
             floors.get(i).step();

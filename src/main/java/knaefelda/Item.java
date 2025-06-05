@@ -40,5 +40,10 @@ public class Item {
     public int getWeight() {
         return weight;
     }
+
+    @Override
+    public String toString() {
+        return id;
+    }
     
 }

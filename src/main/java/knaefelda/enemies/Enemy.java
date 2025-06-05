@@ -2,6 +2,7 @@ package knaefelda.enemies;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import knaefelda.Combatable;
 import knaefelda.Item;
@@ -25,6 +26,7 @@ public abstract class Enemy implements Combatable {
         this.maxHealth = health;
         this.attack = attack;
         this.drops = drops;
+        this.dropRolls = dropRolls;
         combatRating = (int) ((health + 2 * attack) / 5);
     }
 
@@ -73,7 +75,9 @@ public abstract class Enemy implements Combatable {
         ArrayList<Item> lootList = new ArrayList<>();
         if (drops == null || dropRolls == 0) return lootList;
 
-        drops.generateLoot(dropRolls).forEach((item, quantity) -> {
+        Map<Item, Integer> dropTable = drops.generateLoot(dropRolls);
+
+        dropTable.forEach((item, quantity) -> {
             for (int i = 0; i < quantity; i++) {
                 lootList.add(item);
             }
