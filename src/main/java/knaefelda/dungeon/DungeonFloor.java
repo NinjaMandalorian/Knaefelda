@@ -62,6 +62,7 @@ public class DungeonFloor implements Stepable {
         for (Enemy enemy : enemies) {
             enemy.setHealth(enemy.getMaxHealth());
         }
+        respawning = false;
     }
 
 }
