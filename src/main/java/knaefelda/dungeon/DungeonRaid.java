@@ -5,12 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import knaefelda.AdventurerParty;
 import knaefelda.Combatable;
 import knaefelda.Item;
 import knaefelda.Person;
 import knaefelda.Stepable;
 import knaefelda.enemies.Enemy;
+import knaefelda.party.AdventurerParty;
 
 public class DungeonRaid implements Stepable {
 

@@ -1,7 +1,10 @@
-package knaefelda;
+package knaefelda.party;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import knaefelda.Combatable;
+import knaefelda.Person;
 
 public abstract class Party implements Combatable {
 

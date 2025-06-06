@@ -3,6 +3,7 @@ package knaefelda;
 import java.util.Scanner;
 
 import knaefelda.dungeon.Dungeon;
+import knaefelda.party.AdventurerParty;
 
 public class Game {
     

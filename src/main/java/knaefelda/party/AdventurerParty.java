@@ -1,7 +1,11 @@
-package knaefelda;
+package knaefelda.party;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import knaefelda.Container;
+import knaefelda.Item;
+import knaefelda.Person;
 
 public class AdventurerParty extends Party implements Container {
 

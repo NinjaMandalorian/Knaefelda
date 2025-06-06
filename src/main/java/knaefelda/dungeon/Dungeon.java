@@ -3,8 +3,8 @@ package knaefelda.dungeon;
 import java.util.ArrayList;
 import java.util.List;
 
-import knaefelda.AdventurerParty;
 import knaefelda.Location;
+import knaefelda.party.AdventurerParty;
 
 public class Dungeon implements Location {
     
