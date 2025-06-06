@@ -169,6 +169,10 @@ public class DungeonRaid implements Stepable {
 
     }
 
+    public RaidStatus getStatus() {
+        return status;
+    }
+
     @Override
     public String toString() {
         return dungeon.getName() + "_" + party.getName();

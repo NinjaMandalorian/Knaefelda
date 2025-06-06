@@ -5,11 +5,15 @@ import java.util.List;
 
 import knaefelda.Combatable;
 import knaefelda.Person;
+import knaefelda.task.Task;
+import knaefelda.task.Taskable;
 
-public abstract class Party implements Combatable {
+public abstract class Party implements Combatable, Taskable {
 
     private String name;
     private ArrayList<Person> members = new ArrayList<>();
+
+    private Task currentTask;
 
     public Party(String name) {
         this.name = name;
@@ -71,6 +75,31 @@ public abstract class Party implements Combatable {
             totalRating += person.getCombatRating();
         }
         return totalRating;
+    }
+
+    @Override
+    public void step() {
+        if (currentTask != null) {
+            currentTask.step();
+        }
+    }
+
+    @Override
+    public Task getTask() {
+        return currentTask;
+    }
+
+    @Override
+    public boolean hasActiveTask() {
+        return (currentTask != null);
+    }
+
+    @Override
+    public void assignTask(Task task) {
+        if (hasActiveTask()) {
+            throw new IllegalStateException("Cannot assign task: already has an active task");
+        }
+        currentTask = task;
     }
 
 }

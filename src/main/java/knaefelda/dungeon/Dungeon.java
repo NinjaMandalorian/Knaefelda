@@ -8,8 +8,6 @@ import knaefelda.location.AbstractLocation;
 import knaefelda.party.AdventurerParty;
 
 public class Dungeon extends AbstractLocation {
-    
-    private String name;
 
     private ArrayList<DungeonFloor> floors = new ArrayList<>();
 
@@ -21,10 +19,6 @@ public class Dungeon extends AbstractLocation {
         for (int i = 0; i < floors; i++) {
             this.floors.add(DungeonFloors.goblinDungeonFloor(1 + 2*i));
         }
-    }
-
-    public String getName() {
-        return name;
     }
 
     public List<DungeonFloor> getFloors() {
