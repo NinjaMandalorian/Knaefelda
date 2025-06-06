@@ -15,8 +15,8 @@ public class Dungeon extends AbstractLocation {
     // TODO : Limiting output of dungeon to curb spam of resources
     private ArrayList<DungeonRaid> activeRaids = new ArrayList<>();
 
-    public Dungeon(String name, int floors, double xPos, double yPos) {
-        super(name, xPos, yPos);
+    public Dungeon(String name, World world, int floors, double xPos, double yPos) {
+        super(name, world, xPos, yPos);
         for (int i = 0; i < floors; i++) {
             this.floors.add(DungeonFloors.goblinDungeonFloor(1 + 2*i));
         }

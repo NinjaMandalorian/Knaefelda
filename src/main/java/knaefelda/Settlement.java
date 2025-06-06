@@ -8,8 +8,8 @@ public abstract class Settlement extends AbstractLocation {
 
     private List<Person> residents;
 
-    public Settlement(String name, List<Person> residents, double xPos, double yPos) {
-        super(name, xPos, yPos);
+    public Settlement(String name, World world, List<Person> residents, double xPos, double yPos) {
+        super(name, world, xPos, yPos);
         this.residents = residents;
     }
 

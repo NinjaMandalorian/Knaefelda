@@ -1,13 +1,12 @@
 package knaefelda.location;
 
 import knaefelda.Stepable;
+import knaefelda.World;
 
-public interface Location extends Stepable {
+public interface Location extends Position, Stepable {
 
     public String getName();
-    
-    public double getX();
 
-    public double getY();
+    public World getWorld();
     
 }
