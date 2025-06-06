@@ -3,6 +3,7 @@ package knaefelda.dungeon;
 import java.util.ArrayList;
 import java.util.List;
 
+import knaefelda.World;
 import knaefelda.location.AbstractLocation;
 import knaefelda.party.AdventurerParty;
 
@@ -15,7 +16,7 @@ public class Dungeon extends AbstractLocation {
     // TODO : Limiting output of dungeon to curb spam of resources
     private ArrayList<DungeonRaid> activeRaids = new ArrayList<>();
 
-    public Dungeon(String name, World world, int floors, double xPos, double yPos) {
+    public Dungeon(String name, int floors, World world, double xPos, double yPos) {
         super(name, world, xPos, yPos);
         for (int i = 0; i < floors; i++) {
             this.floors.add(DungeonFloors.goblinDungeonFloor(1 + 2*i));

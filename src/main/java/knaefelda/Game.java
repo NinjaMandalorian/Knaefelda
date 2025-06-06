@@ -29,6 +29,7 @@ public class Game {
         Dungeon startDungeon = new Dungeon(
             "Newbie Dungeon",
             3,
+            world,
             5.0,
             3.5
         );
