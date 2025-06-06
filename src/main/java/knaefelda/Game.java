@@ -26,7 +26,12 @@ public class Game {
         Thread inputThread = new Thread(() -> inputLoop());
         inputThread.start();
 
-        Dungeon startDungeon = new Dungeon("Newbie Dungeon", 3);
+        Dungeon startDungeon = new Dungeon(
+            "Newbie Dungeon",
+            3,
+            5.0,
+            3.5
+        );
         world.addLocation(startDungeon);
 
         AdventurerParty party = new AdventurerParty("Yellow Crimson");

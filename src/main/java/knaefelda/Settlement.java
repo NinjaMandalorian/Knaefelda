@@ -2,18 +2,15 @@ package knaefelda;
 
 import java.util.List;
 
-public abstract class Settlement implements Location {
+import knaefelda.location.AbstractLocation;
 
-    private String name;
+public abstract class Settlement extends AbstractLocation {
+
     private List<Person> residents;
 
-    public Settlement(String name, List<Person> residents) {
-        this.name = name;
+    public Settlement(String name, List<Person> residents, double xPos, double yPos) {
+        super(name, xPos, yPos);
         this.residents = residents;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public List<Person> getResidents() {

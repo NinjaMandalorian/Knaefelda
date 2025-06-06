@@ -3,6 +3,8 @@ package knaefelda;
 import java.util.ArrayList;
 import java.util.List;
 
+import knaefelda.location.Location;
+
 public class World {
     private List<Location> locations = new ArrayList<>();
 

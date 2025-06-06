@@ -1,6 +1,8 @@
 package knaefelda;
 import java.util.ArrayList;
 
+import knaefelda.location.Location;
+
 public class Person implements Combatable, Container {
 
     // Data fields

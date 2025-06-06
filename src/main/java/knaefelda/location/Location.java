@@ -1,4 +1,6 @@
-package knaefelda;
+package knaefelda.location;
+
+import knaefelda.Stepable;
 
 public interface Location extends Stepable {
 
